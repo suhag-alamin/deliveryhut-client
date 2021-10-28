@@ -74,12 +74,13 @@ const Header = () => {
               </Nav.Link>
               <Nav.Link
                 activeClassName="nav-selected"
-                className="nav-link"
+                className="nav-link me-2"
                 as={NavLink}
                 to="/login"
               >
                 Login
               </Nav.Link>
+
               <Button className="deliveryhut-outline-btn px-3" variant="text">
                 Log Out
               </Button>

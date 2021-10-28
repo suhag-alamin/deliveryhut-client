@@ -1,0 +1,22 @@
+.carousel-one {
+  background: url(../../../../images//slider-1.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 150px 40px;
+  color: #edf6f9;
+}
+.carousel-two {
+  background: url(../../../../images//slider-2.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 150px 40px;
+  color: #edf6f9;
+}
+.carousel-three {
+  background: url(../../../../images//slider-3.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 150px 40px;
+  color: #edf6f9;
+}
+
+.banner-title {
+  font-size: 60px;
+}
