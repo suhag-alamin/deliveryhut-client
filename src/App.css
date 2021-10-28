@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+/* reset style  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* google fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:wght@600;700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+/* common style  */
+.deliveryhut-btn {
+  background: #006d77 !important;
+  color: #edf6f9 !important;
+  border: 1px solid #006d77 !important;
+  transition: 0.4s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.deliveryhut-btn:hover {
+  background: #073b4c !important;
+  border-color: #073b4c !important;
+}
+
+.deliveryhut-outline-btn {
+  color: #e29578 !important;
+  border: 1px solid #e29578 !important;
+  transition: 0.4s;
+}
+.deliveryhut-outline-btn:hover {
+  background: #e29578;
+  color: #fff !important;
 }
