@@ -1,0 +1,43 @@
+/* header style  */
+.logo {
+  width: 50%;
+}
+.nav-link {
+  color: #073b4c !important;
+  font-size: 18px;
+  position: relative;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: #e29578 !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  width: 60%;
+  height: 2px;
+  margin: auto;
+  background: #e29578;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.nav-link:hover.nav-link::after {
+  visibility: visible;
+  bottom: -10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-link {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .nav-link:hover.nav-link::after {
+    visibility: hidden;
+  }
+}
