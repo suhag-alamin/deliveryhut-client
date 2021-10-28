@@ -9,12 +9,12 @@ const Banner = () => {
       <Container fluid className="banner-section p-0">
         <Carousel variant="ligth">
           <Carousel.Item className="carousel-one">
-            <Container className="px-5">
+            <Container className="px-md-5">
               <Row>
-                <Col>
+                <Col sm={12} lg={6}>
                   <div className="">
                     <h5>Welcome to</h5>
-                    <h1 className="banner-title mb-2">Deliveryhut</h1>
+                    <h1 className="banner-title mb-2">Deliveryhut Services</h1>
                     <p className="mb-4">
                       We provide professional delivery services at Deliveryhut.
                       We make sure that your product is delivered on time.
@@ -26,16 +26,16 @@ const Banner = () => {
                     </Link>
                   </div>
                 </Col>
-                <Col></Col>
+                <Col sm={12} lg={6}></Col>
               </Row>
             </Container>
           </Carousel.Item>
 
           <Carousel.Item className="carousel-two">
-            <Container className="px-5">
+            <Container className="px-md-5">
               <Row>
-                <Col></Col>
-                <Col>
+                <Col sm={12} lg={6}></Col>
+                <Col sm={12} lg={6}>
                   <div className="">
                     <h5>Transport your goods</h5>
                     <h1 className="banner-title mb-2">AROUND THE WORLD</h1>
@@ -55,9 +55,9 @@ const Banner = () => {
           </Carousel.Item>
 
           <Carousel.Item className="carousel-three">
-            <Container className="px-5">
+            <Container className="px-md-5">
               <Row>
-                <Col>
+                <Col sm={12} lg={6}>
                   <div className="">
                     <h5>With help from our fleet</h5>
                     <h1 className="banner-title mb-2">SEND IT ANYWHERE</h1>
@@ -73,7 +73,7 @@ const Banner = () => {
                     </Link>
                   </div>
                 </Col>
-                <Col></Col>
+                <Col sm={12} lg={6}></Col>
               </Row>
             </Container>
           </Carousel.Item>

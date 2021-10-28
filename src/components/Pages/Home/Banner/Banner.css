@@ -20,3 +20,19 @@
 .banner-title {
   font-size: 60px;
 }
+
+@media only screen and (max-width: 768px) {
+  .carousel-one,
+  .carousel-two,
+  .carousel-three {
+    padding: 50px 20px;
+  }
+  .banner-title {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .banner-title {
+    font-size: 24px;
+  }
+}
