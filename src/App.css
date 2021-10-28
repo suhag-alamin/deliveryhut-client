@@ -22,6 +22,9 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
+  background: url(./images/page-bg.png) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1,
@@ -56,4 +59,8 @@ a {
 .deliveryhut-outline-btn:hover {
   background: #e29578;
   color: #fff !important;
+}
+
+.colored-text {
+  color: #006d77;
 }

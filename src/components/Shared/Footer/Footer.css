@@ -1,0 +1,31 @@
+/* footer-section style  */
+.footer-section {
+  background: #073b4c;
+}
+.social-links {
+  display: inline-block;
+  border: 1px solid #edf6f9;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #edf6f9;
+  transition: 0.8s;
+}
+.social-links svg {
+  font-size: 20px;
+}
+.social-links:hover {
+  background: #edf6f9;
+  color: #073b4c;
+  transform: rotate(360deg) scale(1.15);
+}
+.footer-contact svg {
+  transition: 0.4s;
+}
+.footer-contact:hover svg {
+  color: #e29578;
+}

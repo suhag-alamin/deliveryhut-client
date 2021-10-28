@@ -19,7 +19,7 @@ const Header = () => {
                 activeClassName="nav-selected"
                 className="nav-link"
                 as={NavLink}
-                to="/"
+                to="/home"
               >
                 Home
               </Nav.Link>
@@ -80,7 +80,9 @@ const Header = () => {
               >
                 Login
               </Nav.Link>
-              <Button variant="text">Log Out</Button>
+              <Button className="deliveryhut-outline-btn px-3" variant="text">
+                Log Out
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
