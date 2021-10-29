@@ -32,7 +32,6 @@ const AddService = () => {
         }
       });
   };
-  console.log(errors);
   return (
     <>
       {/* banner */}
@@ -73,6 +72,7 @@ const AddService = () => {
               <span className="text-danger">Price is required</span>
             )}
             <input
+              title="Please upload the image in Imgbb or anywhere you want, then submit the live link."
               type="url"
               placeholder="Image url / link"
               {...register("img", { required: true })}
