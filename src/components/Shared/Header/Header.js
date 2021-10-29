@@ -3,8 +3,10 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from "../../../images/logo.png";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
+  const { user } = useAuth();
   return (
     <>
       <Navbar sticky="top" bg="light" expand="lg" className="p-0 border-bottom">
@@ -31,30 +33,36 @@ const Header = () => {
               >
                 Services
               </Nav.Link>
-              <Nav.Link
-                activeClassName="nav-selected"
-                className="nav-link"
-                as={NavLink}
-                to="/myOrders"
-              >
-                My Orders
-              </Nav.Link>
-              <Nav.Link
-                activeClassName="nav-selected"
-                className="nav-link"
-                as={NavLink}
-                to="/manageAllOrders"
-              >
-                Manage All Orders
-              </Nav.Link>
-              <Nav.Link
-                activeClassName="nav-selected"
-                className="nav-link"
-                as={NavLink}
-                to="/addService"
-              >
-                Add Service
-              </Nav.Link>
+              {user?.email && (
+                <Nav.Link
+                  activeClassName="nav-selected"
+                  className="nav-link"
+                  as={NavLink}
+                  to="/myOrders"
+                >
+                  My Orders
+                </Nav.Link>
+              )}
+              {user?.email && (
+                <Nav.Link
+                  activeClassName="nav-selected"
+                  className="nav-link"
+                  as={NavLink}
+                  to="/manageAllOrders"
+                >
+                  Manage All Orders
+                </Nav.Link>
+              )}
+              {user?.email && (
+                <Nav.Link
+                  activeClassName="nav-selected"
+                  className="nav-link"
+                  as={NavLink}
+                  to="/addService"
+                >
+                  Add Service
+                </Nav.Link>
+              )}
 
               <Nav.Link
                 activeClassName="nav-selected"
@@ -72,19 +80,26 @@ const Header = () => {
               >
                 Contact
               </Nav.Link>
-              <Nav.Link
-                activeClassName="nav-selected"
-                className="nav-link me-2"
-                as={NavLink}
-                to="/login"
-              >
-                Login
-              </Nav.Link>
-
-              <Button className="deliveryhut-outline-btn px-3" variant="text">
-                Log Out
-              </Button>
+              {!user?.email ? (
+                <Nav.Link
+                  activeClassName="nav-selected"
+                  className="nav-link me-2"
+                  as={NavLink}
+                  to="/login"
+                >
+                  Login
+                </Nav.Link>
+              ) : (
+                <Button className="deliveryhut-outline-btn px-3" variant="text">
+                  Log Out
+                </Button>
+              )}
             </Nav>
+            {user?.photoURL && (
+              <span className="ms-2">
+                <img className="user-img" src={user.photoURL} alt="" />
+              </span>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
