@@ -12,7 +12,7 @@ import {
 const FeatureContact = () => {
   return (
     <>
-      <Container fluid className="feature-contact py-5">
+      <Container fluid className="colored-bg py-5">
         <Container>
           <Row className="justify-content-center">
             <Col md={4} lg={4}>
