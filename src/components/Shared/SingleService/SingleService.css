@@ -20,3 +20,11 @@
 .description {
   color: #222;
 }
+
+.booking-btn .book-icon {
+  transition: 0.4s;
+}
+.booking-btn:hover .book-icon {
+  display: inline-block;
+  margin-left: 20px !important;
+}

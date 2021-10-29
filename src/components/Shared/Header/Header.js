@@ -5,6 +5,9 @@ import "./Header.css";
 import logo from "../../../images/logo.png";
 import useAuth from "../../../hooks/useAuth";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+
 const Header = () => {
   const { user, logOut } = useAuth();
   return (
@@ -88,6 +91,9 @@ const Header = () => {
                   to="/login"
                 >
                   Login
+                  <span className="ms-2">
+                    <FontAwesomeIcon icon={faSignInAlt} />
+                  </span>
                 </Nav.Link>
               ) : (
                 <Button
@@ -96,6 +102,9 @@ const Header = () => {
                   variant="text"
                 >
                   Log Out
+                  <span className="ms-2">
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                  </span>
                 </Button>
               )}
             </Nav>
