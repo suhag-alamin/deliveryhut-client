@@ -3,3 +3,8 @@
   background-size: cover;
   padding: 120px 0;
 }
+@media only screen and (max-width: 400px) {
+  .others-banner {
+    padding: 40px 0;
+  }
+}

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -6,6 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./OrderPlace.css";
+import swal from "sweetalert";
 
 const OrderPlace = () => {
   // dynamic title
@@ -35,11 +37,23 @@ const OrderPlace = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+  // submit order
   const onSubmit = (data) => {
     data.status = "pending";
-    console.log(data);
+    axios
+      .post("https://morning-sierra-84457.herokuapp.com/orders", data)
+      .then((result) => {
+        if (result?.data?.insertedId) {
+          swal({
+            title: "Successfully booked the service!",
+            icon: "success",
+          });
+          reset();
+        }
+      });
   };
 
   // spinner
