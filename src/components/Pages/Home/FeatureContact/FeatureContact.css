@@ -1,0 +1,23 @@
+.feature-contact {
+  background: rgba(0, 109, 119, 0.8);
+}
+
+.feature-icon svg {
+  transition: 0.4s;
+}
+.feature-icon:hover svg {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.feature-box {
+  border-right: 1px solid #ddd;
+}
+
+@media only screen and (max-width: 768px) {
+  .feature-box,
+  .feature-box-last {
+    border: none;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

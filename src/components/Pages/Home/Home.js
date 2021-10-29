@@ -2,6 +2,7 @@ import React from "react";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import Banner from "./Banner/Banner";
 import Blogs from "./Blogs/Blogs";
+import FeatureContact from "./FeatureContact/FeatureContact";
 import "./Home.css";
 import ServiceSection from "./ServiceSection/ServiceSection";
 
@@ -11,6 +12,8 @@ const Home = () => {
     <div>
       {/* banner section  */}
       <Banner></Banner>
+      {/* feature contact section  */}
+      <FeatureContact></FeatureContact>
       {/* service section  */}
       <ServiceSection></ServiceSection>
       {/* blog section  */}
