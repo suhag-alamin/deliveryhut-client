@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
@@ -30,6 +31,24 @@ const MyOrders = () => {
       });
   }, []);
 
+  const hanldeDelete = (id) => {
+    const proceed = window.confirm("Are you sure want to cancel?");
+    if (proceed) {
+      axios
+        .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+        .then((result) => {
+          if (result.data.deletedCount > 0) {
+            const remaining = orders.filter((event) => event._id !== id);
+            setOrders(remaining);
+            swal({
+              title: "Booking Canceled",
+              icon: "success",
+            });
+          }
+        });
+    }
+  };
+
   // spinner
   if (isLoading) {
     return (
@@ -50,7 +69,10 @@ const MyOrders = () => {
         <Row className="g-4">
           {orders.map((order) => (
             <Col lg={6} key={order._id}>
-              <SingleOrder order={order}></SingleOrder>
+              <SingleOrder
+                order={order}
+                hanldeDelete={hanldeDelete}
+              ></SingleOrder>
             </Col>
           ))}
         </Row>

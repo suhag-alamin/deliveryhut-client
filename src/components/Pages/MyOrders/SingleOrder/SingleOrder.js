@@ -2,8 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "./SingleOrder.css";
 
-const SingleOrder = ({ order }) => {
-  const { serviceName, img, date, status } = order;
+const SingleOrder = ({ order, hanldeDelete }) => {
+  const { _id, serviceName, img, date, status } = order;
   return (
     <>
       <div className="order-details-box d-flex gap-4 justify-content-between align-items-center shadow">
@@ -20,7 +20,11 @@ const SingleOrder = ({ order }) => {
           </p>
         </div>
         <div className="">
-          <Button className="deliveryhut-outline-bt" variant="outline-light">
+          <Button
+            onClick={() => hanldeDelete(_id)}
+            className="deliveryhut-outline-bt"
+            variant="outline-light"
+          >
             Cancel
           </Button>
         </div>
