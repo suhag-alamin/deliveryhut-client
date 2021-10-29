@@ -12,7 +12,7 @@ const Banner = () => {
             <Container className="px-md-5">
               <Row>
                 <Col sm={12} lg={6}>
-                  <div className="">
+                  <div className="animate__animated animate__fadeInLeft">
                     <h5>Welcome to</h5>
                     <h1 className="banner-title mb-2">Deliveryhut Services</h1>
                     <p className="mb-4">
@@ -36,7 +36,7 @@ const Banner = () => {
               <Row>
                 <Col sm={12} lg={6}></Col>
                 <Col sm={12} lg={6}>
-                  <div className="">
+                  <div className="animate__animated animate__fadeInRight">
                     <h5>Transport your goods</h5>
                     <h1 className="banner-title mb-2">AROUND THE WORLD</h1>
                     <p className="mb-4">
@@ -58,7 +58,7 @@ const Banner = () => {
             <Container className="px-md-5">
               <Row>
                 <Col sm={12} lg={6}>
-                  <div className="">
+                  <div className="animate__animated animate__fadeInLeft">
                     <h5>With help from our fleet</h5>
                     <h1 className="banner-title mb-2">SEND IT ANYWHERE</h1>
                     <p className="mb-4">
