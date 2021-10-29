@@ -32,7 +32,9 @@ const AllServices = () => {
   return (
     <div>
       {/* banner  */}
-      <OthersBanner>Services</OthersBanner>
+      <OthersBanner>
+        <h2>Services</h2>
+      </OthersBanner>
       {/* serivce  */}
       <Container className="py-5">
         <h2 className="text-center fs-2">
