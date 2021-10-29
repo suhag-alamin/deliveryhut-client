@@ -20,7 +20,6 @@ const AllServices = () => {
         setIsLoading(false);
       });
   }, []);
-  console.log(services);
 
   if (isLoading) {
     return (

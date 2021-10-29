@@ -1,0 +1,25 @@
+/* order-form */
+.order-form {
+}
+.order-form {
+  background: rgba(237, 246, 249, 0.7);
+  border-radius: 20px;
+  padding: 40px;
+  /* width: 50%; */
+  margin: auto;
+}
+.order-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-form form input,
+textarea {
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #006d77;
+  background: transparent;
+  color: #006d77;
+}
