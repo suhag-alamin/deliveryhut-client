@@ -22,7 +22,7 @@ const Testimonials = () => {
           <Row className="mt-4 g-4">
             <Col lg={1}></Col>
             <Col lg={5}>
-              <div className="text-white d-flex gap-4 testimonial-box">
+              <div className="text-white d-md-flex gap-4 testimonial-box">
                 <div>
                   <FontAwesomeIcon
                     className="fs-1 quote-icon"
@@ -46,7 +46,7 @@ const Testimonials = () => {
               </div>
             </Col>
             <Col lg={5}>
-              <div className="text-white d-flex gap-4 testimonial-box">
+              <div className="text-white d-md-flex gap-4 testimonial-box">
                 <div>
                   <FontAwesomeIcon
                     className="fs-1 quote-icon"

@@ -29,3 +29,17 @@
 .footer-contact:hover svg {
   color: #e29578;
 }
+
+@media only screen and (max-width: 400px) {
+  .footer-contact p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .footer-blog-title {
+    font-size: 14px;
+  }
+  .footer-social-links {
+    display: flex;
+    justify-content: center;
+  }
+}

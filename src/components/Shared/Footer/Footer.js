@@ -35,19 +35,19 @@ const Footer = () => {
               <img className="w-50" src={logo} alt="" />
             </div>
             <div className="mt-4 border-top py-3">
-              <div className="d-flex gap-3 text-white fs-5 footer-contact">
+              <div className="d-sm-flex gap-3 text-white fs-5 footer-contact">
                 <span>
                   <FontAwesomeIcon icon={faPhoneAlt} />
                 </span>
                 <p>+880 1791490304</p>
               </div>
-              <div className="d-flex gap-3 text-white fs-5 footer-contact">
+              <div className="d-sm-flex gap-3 text-white fs-5 footer-contact">
                 <span>
                   <FontAwesomeIcon icon={faEnvelope} />
                 </span>
                 <p>info@deliveryhut.com</p>
               </div>
-              <div className="d-flex gap-3 text-white fs-5 footer-contact">
+              <div className="d-sm-flex gap-3 text-white fs-5 footer-contact">
                 <span>
                   <FontAwesomeIcon icon={faLocationArrow} />
                 </span>
@@ -66,7 +66,7 @@ const Footer = () => {
                 <ul>
                   {blogs.slice(0, 3).map((blog) => (
                     <li className="mb-4" key={blog._id}>
-                      <div className="d-flex gap-3">
+                      <div className="d-sm-flex gap-3">
                         <div>
                           <img
                             style={{ width: "80px" }}
@@ -77,7 +77,7 @@ const Footer = () => {
                         <div>
                           <Link
                             to={`/blog/${blog._id}`}
-                            className="text-decoration-none text-white"
+                            className="text-decoration-none text-white footer-blog-title"
                           >
                             {" "}
                             {blog?.title}
@@ -95,7 +95,7 @@ const Footer = () => {
               <h3 className="" style={{ color: "#edf6f9" }}>
                 Social Links
               </h3>
-              <div className="border-top pt-3 mt-3">
+              <div className="border-top pt-3 mt-3 footer-social-links">
                 <a
                   className="social-links"
                   href="https://www.facebook.com/suhag.alamin.315/"
