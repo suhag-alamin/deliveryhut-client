@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
+import useAuth from "../../../hooks/useAuth";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./OrderPlace.css";
@@ -14,6 +15,8 @@ const OrderPlace = () => {
   // states
   const [service, setService] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAuth();
+
   // load data
   useEffect(() => {
     setIsLoading(true);
@@ -35,6 +38,7 @@ const OrderPlace = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    data.status = "pending";
     console.log(data);
   };
 
@@ -59,7 +63,7 @@ const OrderPlace = () => {
           <Col lg={6}>
             <div>
               <Card className="h-100 shadow-sm">
-                <div className="overflow-hidden">
+                <div className="overflow-hidden order-details-img">
                   <Card.Img className="img-fluid" variant="top" src={img} />
                 </div>
                 <Card.Body>
@@ -70,28 +74,17 @@ const OrderPlace = () => {
                   <h4 style={{ color: "#006d77" }}>$ {price}</h4>
                   <Card.Text className="description">{description}</Card.Text>
                 </Card.Body>
-                {/* <Card.Footer className="bg-white border-0 text-center pb-3">
-          <Button
-            onClick={() => handleClick(_id)}
-            className="deliveryhut-btn booking-btn"
-            variant=""
-          >
-            Book Now
-            <span className="ms-2 book-icon">
-              <FontAwesomeIcon icon={faArrowAltCircleRight} />
-            </span>
-          </Button>
-        </Card.Footer> */}
               </Card>
             </div>
           </Col>
-          <Col lg={6}>
+          <Col lg={6} className="mt-5">
             <h4 className="mb-4">Booking Details</h4>
             <div className="order-form">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   type="text"
                   placeholder="Name"
+                  value={user?.displayName}
                   {...register("userName", { required: true })}
                 />
                 {errors.userName && (
@@ -100,6 +93,7 @@ const OrderPlace = () => {
                 <input
                   type="email"
                   placeholder="Email"
+                  value={user?.email}
                   {...register("userEmail", { required: true })}
                 />
                 {errors.userEmail && (
@@ -108,6 +102,7 @@ const OrderPlace = () => {
                 <input
                   type="text"
                   placeholder="Service Name"
+                  value={title}
                   {...register("serviceName", { required: true })}
                 />
                 {errors.serviceName && (
@@ -116,6 +111,7 @@ const OrderPlace = () => {
                 <input
                   type="number"
                   placeholder="Price"
+                  value={price}
                   {...register("price", { required: true })}
                 />
                 {errors.price && (

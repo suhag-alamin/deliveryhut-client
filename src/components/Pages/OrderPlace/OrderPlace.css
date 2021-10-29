@@ -23,3 +23,7 @@ textarea {
   background: transparent;
   color: #006d77;
 }
+.order-details-img img {
+  width: 100%;
+  height: 350px;
+}
