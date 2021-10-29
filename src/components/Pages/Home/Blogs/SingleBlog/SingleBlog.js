@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 const SingleBlog = ({ blog }) => {
-  const { title, description, img } = blog;
+  const { _id, title, description, img } = blog;
   return (
     <>
       <Card className="h-100 shadow">
@@ -18,7 +18,11 @@ const SingleBlog = ({ blog }) => {
           </Card.Text>
         </Card.Body>
         <Card.Footer className="bg-white border-0 text-center pb-3">
-          <Link style={{ color: "#006d77" }} className="text-decoration-none">
+          <Link
+            to={`/blog/${_id}`}
+            style={{ color: "#006d77" }}
+            className="text-decoration-none"
+          >
             Read More
             <span className="ms-2">
               <FontAwesomeIcon icon={faAngleDoubleRight} />

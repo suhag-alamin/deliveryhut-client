@@ -17,6 +17,7 @@ import PageNotFound from "./components/Pages/PageNotFound/PageNotFound";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import BlogDetails from "./components/Pages/Home/Blogs/BlogDetails/BlogDetails";
 
 function App() {
   useDocumentTitle("Deliveryhut - Professional delivery services", false);
@@ -53,6 +54,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute exact path="/addService">
               <AddService></AddService>
+            </PrivateRoute>
+            <PrivateRoute exact path="/blog/:id">
+              <BlogDetails></BlogDetails>
             </PrivateRoute>
             <Route exact path="/login">
               <Login></Login>
