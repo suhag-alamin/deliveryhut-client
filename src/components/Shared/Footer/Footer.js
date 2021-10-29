@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,8 +15,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import logo from "../../../images/logo-2.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    fetch("https://morning-sierra-84457.herokuapp.com/blogs")
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data);
+      });
+  }, []);
   return (
     <Container fluid className="footer-section pt-5">
       <Container>
@@ -53,6 +62,32 @@ const Footer = () => {
               <h3 className="" style={{ color: "#edf6f9" }}>
                 Recent Posts
               </h3>
+              <div className="my-3 border-top pt-3 text-white">
+                <ul>
+                  {blogs.slice(0, 3).map((blog) => (
+                    <li className="mb-4" key={blog._id}>
+                      <div className="d-flex gap-3">
+                        <div>
+                          <img
+                            style={{ width: "80px" }}
+                            src={blog?.img}
+                            alt=""
+                          />
+                        </div>
+                        <div>
+                          <Link
+                            to={`/blog/${blog._id}`}
+                            className="text-decoration-none text-white"
+                          >
+                            {" "}
+                            {blog?.title}
+                          </Link>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </Col>
           <Col lg={4}>
@@ -60,7 +95,7 @@ const Footer = () => {
               <h3 className="" style={{ color: "#edf6f9" }}>
                 Social Links
               </h3>
-              <div>
+              <div className="border-top pt-3 mt-3">
                 <a
                   className="social-links"
                   href="https://www.facebook.com/suhag.alamin.315/"

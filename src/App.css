@@ -9,7 +9,7 @@ a {
 }
 
 ul {
-  padding: 0;
+  padding: 0 !important;
 }
 li {
   list-style: none;
