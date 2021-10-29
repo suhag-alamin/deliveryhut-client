@@ -1,9 +1,11 @@
+import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./AddService.css";
+import swal from "sweetalert";
 
 const AddService = () => {
   // dynamic title
@@ -12,16 +14,29 @@ const AddService = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    axios
+      .post("https://morning-sierra-84457.herokuapp.com/services", data)
+      .then((result) => {
+        console.log(result);
+        if (result?.data?.insertedId) {
+          swal({
+            title: "Successfully add a service",
+            icon: "success",
+          });
+          reset();
+        }
+      });
+  };
   console.log(errors);
   return (
     <>
       {/* banner */}
-      <OthersBanner>
-        <h2>Add a Service</h2>
-      </OthersBanner>
+      <OthersBanner>Add a Service</OthersBanner>
       {/* add a service  */}
       <Container className="py-5">
         <h2 className="text-center fs-1">

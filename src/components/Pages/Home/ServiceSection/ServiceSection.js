@@ -15,7 +15,6 @@ const ServiceSection = () => {
         setIsLoading(false);
       });
   }, []);
-  console.log(services);
 
   if (isLoading) {
     return (
