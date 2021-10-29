@@ -8,6 +8,9 @@ import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./MyOrder.css";
 import SingleOrder from "./SingleOrder/SingleOrder";
 
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 const MyOrders = () => {
   // dynamic title
   useDocumentTitle("My Orders");
@@ -32,21 +35,50 @@ const MyOrders = () => {
   }, []);
 
   const hanldeDelete = (id) => {
-    const proceed = window.confirm("Are you sure want to cancel?");
-    if (proceed) {
-      axios
-        .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
-        .then((result) => {
-          if (result.data.deletedCount > 0) {
-            const remaining = orders.filter((event) => event._id !== id);
-            setOrders(remaining);
-            swal({
-              title: "Booking Canceled",
-              icon: "success",
-            });
-          }
-        });
-    }
+    // const proceed = window.confirm("Are you sure want to cancel?");
+    // if (proceed) {
+    //   axios
+    //     .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+    //     .then((result) => {
+    //       if (result.data.deletedCount > 0) {
+    //         const remaining = orders.filter((event) => event._id !== id);
+    //         setOrders(remaining);
+    //         swal({
+    //           title: "Booking Canceled",
+    //           icon: "success",
+    //         });
+    //       }
+    //     });
+    // }
+
+    confirmAlert({
+      message: "Are you sure want to cancel?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            axios
+              .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+              .then((result) => {
+                if (result.data.deletedCount > 0) {
+                  const remaining = orders.filter((event) => event._id !== id);
+                  setOrders(remaining);
+                  swal({
+                    title: "Booking Canceled",
+                    icon: "success",
+                  });
+                }
+              });
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            return;
+          },
+        },
+      ],
+    });
   };
 
   // spinner

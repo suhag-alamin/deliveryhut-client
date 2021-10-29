@@ -16,7 +16,8 @@ const SingleOrder = ({ order, hanldeDelete }) => {
             Status: <b>{status}</b>
           </p>
           <p>
-            <b>{date}</b>
+            Arrival date:
+            <b> {date}</b>
           </p>
         </div>
         <div className="">
