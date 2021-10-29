@@ -12,9 +12,14 @@ const Header = () => {
   const { user, logOut } = useAuth();
   return (
     <>
-      <Navbar sticky="top" bg="light" expand="lg" className="p-0 border-bottom">
+      <Navbar
+        sticky="top"
+        bg="light"
+        expand="lg"
+        className="p-0 border-bottom nav-bar"
+      >
         <Container>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand className="nav-brand" as={Link} to="/">
             <img className="logo" src={logo} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

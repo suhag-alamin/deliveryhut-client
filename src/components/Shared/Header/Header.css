@@ -53,3 +53,12 @@
     visibility: hidden;
   }
 }
+@media only screen and (max-width: 400px) {
+  .nav-bar {
+    padding: 5px 0 !important;
+  }
+  .nav-brand {
+    display: inline-block;
+    width: 50%;
+  }
+}

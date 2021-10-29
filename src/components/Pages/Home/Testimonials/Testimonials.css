@@ -6,3 +6,31 @@
 .quote-icon {
   color: rgba(255, 255, 255, 0.5);
 }
+/* client-logo */
+.client-logo {
+  text-align: center;
+}
+.logo-border {
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+}
+.client-logo img {
+  width: 50%;
+  cursor: pointer;
+  transition: 0.6s;
+}
+.client-logo img:hover {
+  transform: scale(1.15);
+}
+
+@media only screen and (max-width: 992px) {
+  .logo-border {
+    border-right: none;
+  }
+  .client-logo {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .client-logo img {
+    width: 30%;
+  }
+}
