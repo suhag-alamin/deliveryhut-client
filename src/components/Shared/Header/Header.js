@@ -6,7 +6,7 @@ import logo from "../../../images/logo.png";
 import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   return (
     <>
       <Navbar sticky="top" bg="light" expand="lg" className="p-0 border-bottom">
@@ -90,7 +90,11 @@ const Header = () => {
                   Login
                 </Nav.Link>
               ) : (
-                <Button className="deliveryhut-outline-btn px-3" variant="text">
+                <Button
+                  onClick={logOut}
+                  className="deliveryhut-outline-btn px-3"
+                  variant="text"
+                >
                   Log Out
                 </Button>
               )}
