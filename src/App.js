@@ -14,8 +14,11 @@ import ManageAllOrders from "./components/Pages/ManageAllOrders/ManageAllOrders"
 import AddService from "./components/Pages/AddService/AddService";
 import Login from "./components/Pages/Login/Login";
 import PageNotFound from "./components/Pages/PageNotFound/PageNotFound";
+import useDocumentTitle from "./hooks/useDocumentTitle";
 
 function App() {
+  useDocumentTitle("Deliveryhut - Professional delivery services", false);
+
   return (
     <div className="App">
       <Router>

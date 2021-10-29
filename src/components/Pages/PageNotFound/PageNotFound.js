@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 import { useHistory } from "react-router";
+import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import error from "../../../images/404-error-page-not-found.gif";
 
 const PageNotFound = () => {
+  useDocumentTitle("Page Not Found");
   const history = useHistory();
   const handleClick = () => {
     history.push("/");
