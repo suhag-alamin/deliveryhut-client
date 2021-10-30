@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
@@ -18,6 +18,10 @@ const OrderPlace = () => {
   const [service, setService] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuth();
+
+  // redirect  route
+  const history = useHistory();
+  const redirectUrl = "/myOrders";
 
   // load data
   useEffect(() => {
@@ -53,6 +57,7 @@ const OrderPlace = () => {
             icon: "success",
           });
           reset();
+          history.push(redirectUrl);
         }
       });
   };

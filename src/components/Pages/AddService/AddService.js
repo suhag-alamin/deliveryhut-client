@@ -6,10 +6,15 @@ import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./AddService.css";
 import swal from "sweetalert";
+import { useHistory } from "react-router";
 
 const AddService = () => {
   // dynamic title
   useDocumentTitle("Add a Service");
+
+  // redirect  route
+  const history = useHistory();
+  const redirectUrl = "/services";
 
   const {
     register,
@@ -29,6 +34,7 @@ const AddService = () => {
             icon: "success",
           });
           reset();
+          history.push(redirectUrl);
         }
       });
   };
