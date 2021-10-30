@@ -1,0 +1,20 @@
+.member-social {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 20px;
+  border: 1px solid #e29578;
+  border-radius: 50%;
+  color: #e29578;
+  transition: 0.4s;
+}
+
+.member-social:hover {
+  background: #073b4c;
+  border-color: #073b4c;
+  color: #edf6f9;
+  transform: scale(0.9);
+}

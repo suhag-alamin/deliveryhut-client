@@ -9,12 +9,12 @@ const MissionVission = () => {
       <Container className="py-5 px-3 bg-white">
         <Row className=" align-items-center">
           <Col lg={6}>
-            <div className="text-start">
+            <div className="text-center text-lg-start">
               <img className="img-fluid" src={mission} alt="" />
             </div>
           </Col>
           <Col lg={6}>
-            <div className="mt-3 mt-ld-0">
+            <div className="mt-3 mt-ld-0 text-center text-lg-start">
               <p>How do we operate?</p>
               <h3 style={{ color: "#006d77" }}>OUR MISSION</h3>
               <p className="text-muted">
@@ -31,8 +31,13 @@ const MissionVission = () => {
           </Col>
         </Row>
         <Row className="mt-5 align-items-center">
+          <Col lg={6} className="d-lg-none">
+            <div className="text-center text-lg-end mt-3 mt-ld-0">
+              <img className="img-fluid" src={vission} alt="" />
+            </div>
+          </Col>
           <Col lg={6}>
-            <div>
+            <div className="mt-3 mt-ld-0 text-center text-lg-start">
               <p>How do we operate?</p>
               <h3 style={{ color: "#006d77" }}>OUR VISSION</h3>
               <p className="text-muted">
@@ -47,8 +52,8 @@ const MissionVission = () => {
               </p>
             </div>
           </Col>
-          <Col lg={6}>
-            <div className="text-end mt-3 mt-ld-0">
+          <Col lg={6} className="d-none d-lg-block">
+            <div className="text-center text-lg-end mt-3 mt-ld-0">
               <img className="img-fluid" src={vission} alt="" />
             </div>
           </Col>

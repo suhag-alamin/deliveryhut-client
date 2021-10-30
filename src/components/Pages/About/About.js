@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./About.css";
 import AboutCompany from "./AboutCompany/AboutCompany";
 import MissionVission from "./MissionVission/MissionVission";
+import Team from "./Team/Team";
 
 const About = () => {
   // dynamic title
@@ -18,6 +18,8 @@ const About = () => {
       <MissionVission></MissionVission>
       {/* about company  */}
       <AboutCompany></AboutCompany>
+      {/* team section  */}
+      <Team></Team>
     </>
   );
 };
