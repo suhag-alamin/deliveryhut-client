@@ -1,15 +1,29 @@
+import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 
 const ContactForm = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data) => {
+    axios
+      .post("https://morning-sierra-84457.herokuapp.com/message", data)
+      .then((result) => {
+        if (result.data?.insertedId) {
+          swal({
+            text: "We got your Message. We will got back to you soon.",
+            icon: "success",
+          });
+          reset();
+        }
+      });
+  };
   return (
     <>
       <Container className="pb-5">
