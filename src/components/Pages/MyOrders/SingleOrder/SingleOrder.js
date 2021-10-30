@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import "./SingleOrder.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBan } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faBan, faStream } from "@fortawesome/free-solid-svg-icons";
 
 const SingleOrder = ({ order, hanldeDelete }) => {
   const { _id, serviceName, img, date, status } = order;
@@ -16,7 +16,23 @@ const SingleOrder = ({ order, hanldeDelete }) => {
         <div className="order-details">
           <h4 className="mt-3 mt-lg-0 serive-title">{serviceName}</h4>
           <p>
-            Status: <b>{status}</b>
+            Status:{" "}
+            {status === "Approved" && (
+              <span className="mx-2">
+                <FontAwesomeIcon icon={faCheck} />
+              </span>
+            )}
+            {status === "Rejected" && (
+              <span className="mx-2">
+                <FontAwesomeIcon icon={faBan} />
+              </span>
+            )}
+            {status === "pending" && (
+              <span className="mx-2">
+                <FontAwesomeIcon icon={faStream} />
+              </span>
+            )}{" "}
+            <b>{status}</b>
           </p>
           <p>
             Arrival date:

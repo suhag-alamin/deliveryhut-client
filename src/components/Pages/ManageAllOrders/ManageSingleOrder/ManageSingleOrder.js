@@ -1,10 +1,15 @@
+import {
+  faCheck,
+  faPencilAlt,
+  faTrash,
+  faBan,
+  faStream,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 import "./ManageSingleOrder.css";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ManageSingleOrder = ({ order, hanldeDelete }) => {
   const { _id, userName, userEmail, userImg, serviceName, date, status, img } =
@@ -44,7 +49,23 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
             <h4 className="mt-3 mt-lg-0 serive-title">{serviceName}</h4>
 
             <p>
-              Status: <b>{status}</b>
+              Status:{" "}
+              {status === "Approved" && (
+                <span className="mx-2">
+                  <FontAwesomeIcon icon={faCheck} />
+                </span>
+              )}
+              {status === "Rejected" && (
+                <span className="mx-2">
+                  <FontAwesomeIcon icon={faBan} />
+                </span>
+              )}
+              {status === "pending" && (
+                <span className="mx-2">
+                  <FontAwesomeIcon icon={faStream} />
+                </span>
+              )}
+              <b>{status}</b>
             </p>
             <p>
               Arrival date:
