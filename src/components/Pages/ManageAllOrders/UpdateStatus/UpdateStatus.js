@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
+import useDocumentTitle from "../../../../hooks/useDocumentTitle";
+import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
 
 const UpdateStatus = () => {
+  // dynamic title
+  useDocumentTitle("Update Order");
   const { id } = useParams();
   //   states
   const [order, setOrder] = useState({});
@@ -33,6 +37,8 @@ const UpdateStatus = () => {
 
   return (
     <>
+      {/* banner  */}
+      <OthersBanner>Update Order Status</OthersBanner>
       <Container className="py-5 px-3 px-sm-5 colored-bg text-white rounded-3 shadow my-4">
         <Row className="shadow px-3 py-3 rounded-3 align-items-center g-4">
           <Col md={6} lg={3}>
