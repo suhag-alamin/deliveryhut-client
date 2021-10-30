@@ -10,6 +10,7 @@ import SingleOrder from "./SingleOrder/SingleOrder";
 
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { useHistory, useLocation } from "react-router";
 
 const MyOrders = () => {
   // dynamic title
@@ -33,6 +34,11 @@ const MyOrders = () => {
         setIsLoading(false);
       });
   }, []);
+
+  // redirect private route
+  const history = useHistory();
+  const location = useLocation();
+  const redirectUrl = "/";
 
   const hanldeDelete = (id) => {
     // const proceed = window.confirm("Are you sure want to cancel?");
