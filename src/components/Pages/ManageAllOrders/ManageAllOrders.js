@@ -1,5 +1,8 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { confirmAlert } from "react-confirm-alert";
+import swal from "sweetalert";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./ManageAllOrders.css";
@@ -23,6 +26,37 @@ const ManageAllOrders = () => {
       });
   }, []);
 
+  const hanldeDelete = (id) => {
+    confirmAlert({
+      message: "Are you sure want to Delete?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            axios
+              .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+              .then((result) => {
+                if (result.data.deletedCount > 0) {
+                  const remaining = orders.filter((event) => event._id !== id);
+                  setOrders(remaining);
+                  swal({
+                    title: "Deleted successfully",
+                    icon: "success",
+                  });
+                }
+              });
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            return;
+          },
+        },
+      ],
+    });
+  };
+
   // spinner
   if (isLoading) {
     return (
@@ -42,7 +76,10 @@ const ManageAllOrders = () => {
         <Row className="g-4">
           {orders.map((order) => (
             <Col md={12} key={order._id}>
-              <ManageSingleOrder order={order}></ManageSingleOrder>
+              <ManageSingleOrder
+                order={order}
+                hanldeDelete={hanldeDelete}
+              ></ManageSingleOrder>
             </Col>
           ))}
         </Row>

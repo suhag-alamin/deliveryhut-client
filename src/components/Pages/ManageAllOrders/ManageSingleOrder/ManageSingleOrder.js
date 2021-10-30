@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 import "./ManageSingleOrder.css";
 
-const ManageSingleOrder = ({ order }) => {
+const ManageSingleOrder = ({ order, hanldeDelete }) => {
   const { _id, userName, userEmail, userImg, serviceName, date, status, img } =
     order;
 
@@ -56,13 +56,10 @@ const ManageSingleOrder = ({ order }) => {
                 onClick={() => handleEditStatus(_id)}
                 variant="outline-light"
               >
-                Edit Status
+                Update Status
               </Button>
-              <Button
-                // onClick={() => hanldeDelete(_id)}
-                variant="outline-light"
-              >
-                Cancel
+              <Button onClick={() => hanldeDelete(_id)} variant="outline-light">
+                Delete
               </Button>
             </ButtonGroup>
           </div>
