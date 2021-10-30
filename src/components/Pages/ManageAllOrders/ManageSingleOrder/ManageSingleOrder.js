@@ -24,9 +24,9 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
     <>
       {/* <div className="order-details-box d-flex gap-4 align-items-center shadow"></div> */}
       <Row className="shadow px-3 py-3 rounded-3 align-items-center g-4">
-        <Col md={6} lg={3}>
+        <Col md={6} lg={5} xl={4}>
           <div className="d-flex gap-3 flex-column flex-md-row text-center text-md-start align-items-center">
-            <div>
+            <div className="">
               <img src={userImg} className="order-user-img" alt="" />
             </div>
             <div className="mt-2 mt-md-0">
@@ -35,7 +35,7 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
             </div>
           </div>
         </Col>
-        <Col md={6} lg={3}>
+        <Col md={6} lg={3} xl={4}>
           <div className="text-center">
             <img
               className="w-75 img-fluid rounded-3 shadow-sm"
@@ -44,8 +44,8 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
             />
           </div>
         </Col>
-        <Col md={6} lg={3}>
-          <div className="order-details">
+        <Col md={6} lg={4} xl={4}>
+          <div className="order-details text-center text-md-start">
             <h4 className="mt-3 mt-lg-0 serive-title">{serviceName}</h4>
 
             <p>
@@ -73,7 +73,7 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
             </p>
           </div>
         </Col>
-        <Col md={6} lg={3}>
+        <Col md={6} lg={12} xl={12}>
           <div className="text-end">
             <ButtonGroup size="md">
               <Button
