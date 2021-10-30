@@ -1,13 +1,20 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
+import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./Contact.css";
+import ContactDetails from "./ContactDetails/ContactDetails";
 
 const Contact = () => {
+  // dynamic title
   useDocumentTitle("Contact");
   return (
-    <div>
-      <h3>this is contact</h3>
-    </div>
+    <>
+      {/* banner  */}
+      <OthersBanner>Contact Us</OthersBanner>
+      {/* contact detials  */}
+      <ContactDetails></ContactDetails>
+    </>
   );
 };
 

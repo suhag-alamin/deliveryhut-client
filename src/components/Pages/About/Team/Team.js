@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import TeamMember from "./TeamMember/TeamMember";
 
 const Team = () => {
   const [teamMembers, setTeamMembers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    setIsLoading(true);
+
     fetch("https://morning-sierra-84457.herokuapp.com/team")
       .then((res) => res.json())
       .then((data) => {
         setTeamMembers(data);
+        setIsLoading(false);
       });
   }, []);
-  console.log(teamMembers);
+
+  if (isLoading) {
+    return (
+      <div className="text-center py-4">
+        <Spinner animation="border" variant="" style={{ color: "#006d77" }} />
+      </div>
+    );
+  }
   return (
     <>
       <Container className="py-5">
