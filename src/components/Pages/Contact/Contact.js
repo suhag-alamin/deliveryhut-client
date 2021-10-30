@@ -1,9 +1,9 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./Contact.css";
 import ContactDetails from "./ContactDetails/ContactDetails";
+import ContactForm from "./ContactForm/ContactForm";
 
 const Contact = () => {
   // dynamic title
@@ -14,6 +14,8 @@ const Contact = () => {
       <OthersBanner>Contact Us</OthersBanner>
       {/* contact detials  */}
       <ContactDetails></ContactDetails>
+      {/* contact form  */}
+      <ContactForm></ContactForm>
     </>
   );
 };
