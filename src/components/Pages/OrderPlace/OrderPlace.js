@@ -48,6 +48,7 @@ const OrderPlace = () => {
   const onSubmit = (data) => {
     data.status = "pending";
     data.img = `${img}`;
+    data.userImg = user?.photoURL;
     axios
       .post("https://morning-sierra-84457.herokuapp.com/orders", data)
       .then((result) => {
