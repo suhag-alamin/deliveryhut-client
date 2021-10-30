@@ -11,12 +11,6 @@ const ManageSingleOrder = ({ order }) => {
 
   const handleEditStatus = (id) => {
     history.push(`/manageAllOrders/${id}`);
-    // console.log(id);
-    // const url = `http://localhost:5000/orders/${id}`;
-    // axios.put(url, )
-    // .then(result => {
-    //   console.log(result);
-    // })
   };
   return (
     <>

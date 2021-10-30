@@ -35,28 +35,7 @@ const MyOrders = () => {
       });
   }, []);
 
-  // redirect private route
-  const history = useHistory();
-  const location = useLocation();
-  const redirectUrl = "/";
-
   const hanldeDelete = (id) => {
-    // const proceed = window.confirm("Are you sure want to cancel?");
-    // if (proceed) {
-    //   axios
-    //     .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
-    //     .then((result) => {
-    //       if (result.data.deletedCount > 0) {
-    //         const remaining = orders.filter((event) => event._id !== id);
-    //         setOrders(remaining);
-    //         swal({
-    //           title: "Booking Canceled",
-    //           icon: "success",
-    //         });
-    //       }
-    //     });
-    // }
-
     confirmAlert({
       message: "Are you sure want to cancel?",
       buttons: [

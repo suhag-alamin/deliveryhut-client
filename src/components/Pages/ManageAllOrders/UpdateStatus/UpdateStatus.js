@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import useDocumentTitle from "../../../../hooks/useDocumentTitle";
 import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
+import axios from "axios";
+import swal from "sweetalert";
 
 const UpdateStatus = () => {
   // dynamic title
@@ -11,6 +13,9 @@ const UpdateStatus = () => {
   //   states
   const [order, setOrder] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  // redirect private route
+  const history = useHistory();
+  const redirectUrl = "/manageAllOrders";
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,8 +28,25 @@ const UpdateStatus = () => {
       });
   }, [id]);
 
-  const { userImg, userName, userEmail, img, serviceName, status, date } =
+  const { _id, userImg, userName, userEmail, img, serviceName, status, date } =
     order;
+
+  const handleStatusChange = (id) => {
+    // const updateOrder = { ...order };
+    // updateOrder.status = "Approved";
+    order.status = "Approved";
+    setOrder(order);
+
+    axios.put(`http://localhost:5000/orders/${id}`, order).then((result) => {
+      if (result.data?.modifiedCount > 0) {
+        swal({
+          title: "Booking Approved!",
+          icon: "success",
+        });
+        history.push(redirectUrl);
+      }
+    });
+  };
 
   // spinner
   if (isLoading) {
@@ -77,7 +99,7 @@ const UpdateStatus = () => {
           <Col md={6} lg={3}>
             <div className="text-end">
               <Button
-                // onClick={() => handleEditStatus(_id)}
+                onClick={() => handleStatusChange(_id)}
                 variant="outline-light"
               >
                 Approve
