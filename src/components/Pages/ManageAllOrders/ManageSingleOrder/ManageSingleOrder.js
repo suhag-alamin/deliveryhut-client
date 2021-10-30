@@ -1,10 +1,23 @@
 import React from "react";
 import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router";
 import "./ManageSingleOrder.css";
 
 const ManageSingleOrder = ({ order }) => {
-  const { userName, userEmail, userImg, serviceName, date, status, img } =
+  const { _id, userName, userEmail, userImg, serviceName, date, status, img } =
     order;
+
+  const history = useHistory();
+
+  const handleEditStatus = (id) => {
+    history.push(`/manageAllOrders/${id}`);
+    // console.log(id);
+    // const url = `http://localhost:5000/orders/${id}`;
+    // axios.put(url, )
+    // .then(result => {
+    //   console.log(result);
+    // })
+  };
   return (
     <>
       {/* <div className="order-details-box d-flex gap-4 align-items-center shadow"></div> */}
@@ -46,7 +59,7 @@ const ManageSingleOrder = ({ order }) => {
           <div className="text-end">
             <ButtonGroup size="md">
               <Button
-                // onClick={() => hanldeDelete(_id)}
+                onClick={() => handleEditStatus(_id)}
                 variant="outline-light"
               >
                 Edit Status
