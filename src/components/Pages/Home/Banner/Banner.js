@@ -13,9 +13,9 @@ const Banner = () => {
               <Row>
                 <Col sm={12} lg={6}>
                   <div className="animate__animated animate__fadeInLeft">
-                    <h5>Welcome to</h5>
+                    <h5 className="banner-sub-title">Welcome to</h5>
                     <h1 className="banner-title mb-2">Deliveryhut Services</h1>
-                    <p className="mb-4">
+                    <p className="mb-4 banner-text">
                       We provide professional delivery services at Deliveryhut.
                       We make sure that your product is delivered on time.
                     </p>
@@ -37,9 +37,9 @@ const Banner = () => {
                 <Col sm={12} lg={6}></Col>
                 <Col sm={12} lg={6}>
                   <div className="animate__animated animate__fadeInRight">
-                    <h5>Transport your goods</h5>
+                    <h5 className="banner-sub-title">Transport your goods</h5>
                     <h1 className="banner-title mb-2">AROUND THE WORLD</h1>
-                    <p className="mb-4">
+                    <p className="mb-4 banner-text">
                       No matter where you are. We will deliver your product to
                       your home on time! So, don't be worry!
                     </p>
@@ -59,9 +59,11 @@ const Banner = () => {
               <Row>
                 <Col sm={12} lg={6}>
                   <div className="animate__animated animate__fadeInLeft">
-                    <h5>With help from our fleet</h5>
+                    <h5 className="banner-sub-title">
+                      With help from our fleet
+                    </h5>
                     <h1 className="banner-title mb-2">SEND IT ANYWHERE</h1>
-                    <p className="mb-4">
+                    <p className="mb-4 banner-text">
                       Would you like to send a gift to a friend who lives in
                       another country? There's no need to worry, we'll do it for
                       you.

@@ -83,7 +83,7 @@ const MyOrders = () => {
         <h2 className="text-center fs-2 mb-5">
           My <span style={{ color: "#ffddd2" }}>Orders</span>
         </h2>
-        <Row className="g-4">
+        <Row className="g-5">
           {orders.map((order) => (
             <Col lg={6} key={order._id}>
               <SingleOrder
