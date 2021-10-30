@@ -1,6 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
+import {
+  Button,
+  ButtonGroup,
+  Col,
+  Container,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 import { confirmAlert } from "react-confirm-alert";
 import { useHistory, useParams } from "react-router";
 import swal from "sweetalert";
@@ -32,7 +39,7 @@ const UpdateStatus = () => {
   const { _id, userImg, userName, userEmail, img, serviceName, status, date } =
     order;
 
-  const handleStatusChange = (id) => {
+  const handleApproveStatus = (id) => {
     order.status = "Approved";
     setOrder(order);
 
@@ -51,6 +58,42 @@ const UpdateStatus = () => {
                 if (result.data?.modifiedCount > 0) {
                   swal({
                     title: "Booking successfully approved!",
+                    icon: "success",
+                  });
+                  history.push(redirectUrl);
+                }
+              });
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            return;
+          },
+        },
+      ],
+    });
+  };
+
+  const handleRejectStatus = (id) => {
+    order.status = "Rejected";
+    setOrder(order);
+
+    confirmAlert({
+      message: "Are you sure want to Reject?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            axios
+              .put(
+                `https://morning-sierra-84457.herokuapp.com/orders/${id}`,
+                order
+              )
+              .then((result) => {
+                if (result.data?.modifiedCount > 0) {
+                  swal({
+                    title: "Booking Rejected!",
                     icon: "success",
                   });
                   history.push(redirectUrl);
@@ -118,12 +161,20 @@ const UpdateStatus = () => {
           </Col>
           <Col md={6} lg={3}>
             <div className="text-end">
-              <Button
-                onClick={() => handleStatusChange(_id)}
-                variant="outline-light"
-              >
-                Approve
-              </Button>
+              <ButtonGroup size="md">
+                <Button
+                  onClick={() => handleApproveStatus(_id)}
+                  variant="outline-light"
+                >
+                  Approve
+                </Button>
+                <Button
+                  onClick={() => handleRejectStatus(_id)}
+                  variant="outline-light"
+                >
+                  Reject
+                </Button>
+              </ButtonGroup>
             </div>
           </Col>
         </Row>
