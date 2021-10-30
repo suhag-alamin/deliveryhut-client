@@ -30,12 +30,7 @@ const MissionVission = () => {
             </div>
           </Col>
         </Row>
-        <Row className="mt-5 align-items-center">
-          <Col lg={6} className="d-lg-none">
-            <div className="text-center text-lg-end mt-3 mt-ld-0">
-              <img className="img-fluid" src={vission} alt="" />
-            </div>
-          </Col>
+        <Row className="mt-5 align-items-center vission-row">
           <Col lg={6}>
             <div className="mt-3 mt-ld-0 text-center text-lg-start">
               <p>How do we operate?</p>
@@ -52,7 +47,7 @@ const MissionVission = () => {
               </p>
             </div>
           </Col>
-          <Col lg={6} className="d-none d-lg-block">
+          <Col lg={6} className="">
             <div className="text-center text-lg-end mt-3 mt-ld-0">
               <img className="img-fluid" src={vission} alt="" />
             </div>

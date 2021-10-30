@@ -1,0 +1,5 @@
+@media only screen and (max-width: 996px) {
+  .vission-row {
+    flex-direction: column-reverse;
+  }
+}

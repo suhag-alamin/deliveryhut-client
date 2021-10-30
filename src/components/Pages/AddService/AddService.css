@@ -20,3 +20,14 @@ textarea {
   background: transparent;
   color: #006d77;
 }
+
+@media only screen and (max-width: 1000px) {
+  .add-service-form {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .add-service-form {
+    width: 100%;
+  }
+}
