@@ -3,6 +3,9 @@ import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 import "./ManageSingleOrder.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 const ManageSingleOrder = ({ order, hanldeDelete }) => {
   const { _id, userName, userEmail, userImg, serviceName, date, status, img } =
     order;
@@ -56,9 +59,15 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
                 onClick={() => handleUpdateStatus(_id)}
                 variant="outline-light"
               >
+                <span className="me-2">
+                  <FontAwesomeIcon icon={faPencilAlt} />
+                </span>
                 Update Status
               </Button>
               <Button onClick={() => hanldeDelete(_id)} variant="outline-light">
+                <span className="me-2">
+                  <FontAwesomeIcon icon={faTrash} />
+                </span>
                 Delete
               </Button>
             </ButtonGroup>

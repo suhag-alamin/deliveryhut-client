@@ -14,6 +14,9 @@ import swal from "sweetalert";
 import useDocumentTitle from "../../../../hooks/useDocumentTitle";
 import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faBan } from "@fortawesome/free-solid-svg-icons";
+
 const UpdateStatus = () => {
   // dynamic title
   useDocumentTitle("Update Order");
@@ -166,12 +169,18 @@ const UpdateStatus = () => {
                   onClick={() => handleApproveStatus(_id)}
                   variant="outline-light"
                 >
+                  <span className="me-2">
+                    <FontAwesomeIcon icon={faCheck} />
+                  </span>
                   Approve
                 </Button>
                 <Button
                   onClick={() => handleRejectStatus(_id)}
                   variant="outline-light"
                 >
+                  <span className="me-2">
+                    <FontAwesomeIcon icon={faBan} />
+                  </span>
                   Reject
                 </Button>
               </ButtonGroup>

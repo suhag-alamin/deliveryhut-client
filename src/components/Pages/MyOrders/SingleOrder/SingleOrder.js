@@ -2,6 +2,9 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "./SingleOrder.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBan } from "@fortawesome/free-solid-svg-icons";
+
 const SingleOrder = ({ order, hanldeDelete }) => {
   const { _id, serviceName, img, date, status } = order;
   return (
@@ -26,6 +29,9 @@ const SingleOrder = ({ order, hanldeDelete }) => {
             className="deliveryhut-outline-bt"
             variant="outline-light"
           >
+            <span className="me-2">
+              <FontAwesomeIcon icon={faBan} />
+            </span>
             Cancel
           </Button>
         </div>
