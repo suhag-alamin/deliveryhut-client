@@ -1,10 +1,11 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
+import { confirmAlert } from "react-confirm-alert";
 import { useHistory, useParams } from "react-router";
+import swal from "sweetalert";
 import useDocumentTitle from "../../../../hooks/useDocumentTitle";
 import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
-import axios from "axios";
-import swal from "sweetalert";
 
 const UpdateStatus = () => {
   // dynamic title
@@ -32,19 +33,38 @@ const UpdateStatus = () => {
     order;
 
   const handleStatusChange = (id) => {
-    // const updateOrder = { ...order };
-    // updateOrder.status = "Approved";
     order.status = "Approved";
     setOrder(order);
 
-    axios.put(`http://localhost:5000/orders/${id}`, order).then((result) => {
-      if (result.data?.modifiedCount > 0) {
-        swal({
-          title: "Booking Approved!",
-          icon: "success",
-        });
-        history.push(redirectUrl);
-      }
+    confirmAlert({
+      message: "Are you sure want to Approve?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            axios
+              .put(
+                `https://morning-sierra-84457.herokuapp.com/orders/${id}`,
+                order
+              )
+              .then((result) => {
+                if (result.data?.modifiedCount > 0) {
+                  swal({
+                    title: "Booking successfully approved!",
+                    icon: "success",
+                  });
+                  history.push(redirectUrl);
+                }
+              });
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            return;
+          },
+        },
+      ],
     });
   };
 
