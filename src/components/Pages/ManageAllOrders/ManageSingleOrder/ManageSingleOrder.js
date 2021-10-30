@@ -9,7 +9,7 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
 
   const history = useHistory();
 
-  const handleEditStatus = (id) => {
+  const handleUpdateStatus = (id) => {
     history.push(`/manageAllOrders/${id}`);
   };
   return (
@@ -53,7 +53,7 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
           <div className="text-end">
             <ButtonGroup size="md">
               <Button
-                onClick={() => handleEditStatus(_id)}
+                onClick={() => handleUpdateStatus(_id)}
                 variant="outline-light"
               >
                 Update Status
