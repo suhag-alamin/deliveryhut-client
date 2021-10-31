@@ -46,6 +46,14 @@ const UpdateStatus = () => {
     order.status = "Approved";
     setOrder(order);
 
+    if (status === "Approved") {
+      swal({
+        title: "Hey, Already approved",
+        icon: "info",
+      });
+      return;
+    }
+
     confirmAlert({
       message: "Are you sure want to Approve?",
       buttons: [
@@ -81,6 +89,14 @@ const UpdateStatus = () => {
   const handleRejectStatus = (id) => {
     order.status = "Rejected";
     setOrder(order);
+
+    if (status === "Rejected") {
+      swal({
+        title: "Hey, Already rejected",
+        icon: "info",
+      });
+      return;
+    }
 
     confirmAlert({
       message: "Are you sure want to Reject?",
