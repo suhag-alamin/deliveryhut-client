@@ -2,11 +2,11 @@ import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
+import swal from "sweetalert";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./AddService.css";
-import swal from "sweetalert";
-import { useHistory } from "react-router";
 
 const AddService = () => {
   // dynamic title
@@ -23,7 +23,6 @@ const AddService = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     axios
       .post("https://morning-sierra-84457.herokuapp.com/services", data)
       .then((result) => {
