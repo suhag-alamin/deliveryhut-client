@@ -43,7 +43,7 @@ const AddService = () => {
       {/* banner */}
       <OthersBanner>Add a Service</OthersBanner>
       {/* add a service  */}
-      <Container className="py-5">
+      <Container className="py-5 animate__animated animate__fadeInDownBig">
         <h2 className="text-center fs-1">
           Add a <span className="colored-text">Service</span>
         </h2>

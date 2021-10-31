@@ -14,7 +14,7 @@ const SingleService = ({ service }) => {
   };
   return (
     <>
-      <Card className="h-100 shadow">
+      <Card className="h-100 shadow animate__animated animate__slideInUp animate__delay-1s">
         <div className="overflow-hidden service-img">
           <Card.Img className="img-fluid" variant="top" src={img} />
         </div>
@@ -28,7 +28,7 @@ const SingleService = ({ service }) => {
         <Card.Footer className="bg-white border-0 text-center pb-3">
           <Button
             onClick={() => handleClick(_id)}
-            className="deliveryhut-btn booking-btn"
+            className="deliveryhut-btn booking-btn animate__animated animate__backInUp animate__delay-2s"
             variant=""
           >
             Book Now

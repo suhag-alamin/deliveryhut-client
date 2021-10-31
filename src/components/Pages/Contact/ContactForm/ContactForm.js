@@ -26,7 +26,7 @@ const ContactForm = () => {
   };
   return (
     <>
-      <Container className="pb-5">
+      <Container className="pb-5 animate__animated animate__fadeInDownBig animate__delay-1s">
         <h2 className="text-center fs-1">
           Send us a <span className="colored-text">Message</span>
         </h2>

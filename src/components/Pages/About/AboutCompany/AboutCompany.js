@@ -12,7 +12,7 @@ const AboutCompany = () => {
           </h2>
           <Row>
             <Col md={6} lg={3}>
-              <div className="text-center">
+              <div className="text-center animate__animated animate__fadeInLeft animate__delay-1s">
                 <h3 style={{ fontSize: 50 }} className="counter">
                   <CountUp end={100} duration={1} />
                 </h3>
@@ -21,7 +21,7 @@ const AboutCompany = () => {
               </div>
             </Col>
             <Col md={6} lg={3}>
-              <div className="text-center">
+              <div className="text-center animate__animated animate__fadeInUp animate__delay-1s">
                 <h3 style={{ fontSize: 50 }} className="counter">
                   <CountUp end={34907} duration={1} />
                 </h3>
@@ -30,7 +30,7 @@ const AboutCompany = () => {
               </div>
             </Col>
             <Col md={6} lg={3}>
-              <div className="text-center">
+              <div className="text-center animate__animated animate__fadeInDown animate__delay-1s">
                 <h3 style={{ fontSize: 50 }} className="counter">
                   <CountUp end={10} duration={2} />
                 </h3>
@@ -39,7 +39,7 @@ const AboutCompany = () => {
               </div>
             </Col>
             <Col md={6} lg={3}>
-              <div className="text-center">
+              <div className="text-center animate__animated animate__fadeInRight animate__delay-1s">
                 <h3 style={{ fontSize: 50 }} className="counter">
                   <CountUp end={201} duration={1} />
                 </h3>

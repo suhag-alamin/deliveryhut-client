@@ -15,7 +15,7 @@ const SingleOrder = ({ order, hanldeDelete }) => {
         
       </div> */}
 
-      <Row className="order-details-box d-md-flex align-items-center shadow">
+      <Row className="order-details-box d-md-flex align-items-center shadow animate__animated animate__fadeInUpBig">
         <Col md={6} lg={6} xl={4}>
           <div>
             <img className="order-img img-fluid" src={img} alt="" />
@@ -53,7 +53,7 @@ const SingleOrder = ({ order, hanldeDelete }) => {
           <div className="text-end mt-3 mt-xl-0">
             <Button
               onClick={() => hanldeDelete(_id)}
-              className="deliveryhut-outline-bt"
+              className=" animate__animated animate__backInUp animate__delay-1s"
               variant="outline-light"
             >
               <span className="me-2">

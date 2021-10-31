@@ -8,7 +8,7 @@ const TeamMember = ({ member }) => {
   const { name, title, img, fb, twitter } = member;
   return (
     <>
-      <Card className="h-100 shadow-sm">
+      <Card className="h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
         <Card.Img variant="top" src={img} />
         <Card.Body className="text-center">
           <Card.Title style={{ fontSize: 26, color: "#006d77" }}>

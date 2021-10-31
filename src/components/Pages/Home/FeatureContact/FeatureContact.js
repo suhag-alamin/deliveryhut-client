@@ -16,7 +16,7 @@ const FeatureContact = () => {
         <Container>
           <Row className="justify-content-center">
             <Col md={4} lg={4}>
-              <div className="d-flex gap-3 text-white feature-box">
+              <div className="d-flex gap-3 text-white feature-box animate__animated animate__fadeInLeft">
                 <div>
                   <span className="feature-icon">
                     <FontAwesomeIcon className="fs-2" icon={faPhoneVolume} />
@@ -31,7 +31,7 @@ const FeatureContact = () => {
               </div>
             </Col>
             <Col md={4} lg={4}>
-              <div className="d-flex gap-3 text-white feature-box">
+              <div className="d-flex gap-3 text-white feature-box animate__animated animate__fadeInUp">
                 <div>
                   <span className="feature-icon">
                     <FontAwesomeIcon className="fs-2" icon={faClock} />
@@ -46,7 +46,7 @@ const FeatureContact = () => {
               </div>
             </Col>
             <Col md={4} lg={4}>
-              <div className="d-flex gap-3 text-white feature-box-last">
+              <div className="d-flex gap-3 text-white feature-box-last animate__animated animate__fadeInRight">
                 <div>
                   <span className="feature-icon">
                     <FontAwesomeIcon className="fs-2" icon={faMapMarker} />

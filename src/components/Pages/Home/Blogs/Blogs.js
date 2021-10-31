@@ -24,7 +24,7 @@ const Blogs = () => {
   }
   return (
     <>
-      <Container className="py-5">
+      <Container className="py-5 animate__animated animate__slideInUp animate__delay-2s">
         <h2 className="text-center fs-1">
           Lates <span className="colored-text">Blogs</span>
         </h2>

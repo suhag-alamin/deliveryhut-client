@@ -23,7 +23,7 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
   return (
     <>
       {/* <div className="order-details-box d-flex gap-4 align-items-center shadow"></div> */}
-      <Row className="shadow px-3 py-3 rounded-3 align-items-center g-4">
+      <Row className="shadow px-3 py-3 rounded-3 align-items-center g-4 animate__animated animate__fadeInUp">
         <Col md={6} lg={5} xl={4}>
           <div className="d-flex gap-3 flex-column flex-md-row text-center text-md-start align-items-center">
             <div className="">
@@ -75,7 +75,10 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
         </Col>
         <Col md={6} lg={12} xl={12}>
           <div className="text-end">
-            <ButtonGroup size="md">
+            <ButtonGroup
+              size="md"
+              className="animate__animated animate__backInUp animate__delay-1s"
+            >
               <Button
                 onClick={() => handleUpdateStatus(_id)}
                 variant="outline-light"

@@ -22,7 +22,7 @@ const Testimonials = () => {
           <Row className="mt-4 g-4">
             <Col lg={1}></Col>
             <Col lg={5}>
-              <div className="text-white d-md-flex gap-4 testimonial-box">
+              <div className="text-white d-md-flex gap-4 testimonial-box animate__animated animate__fadeInLeft animate__delay-2s">
                 <div>
                   <FontAwesomeIcon
                     className="fs-1 quote-icon"
@@ -46,7 +46,7 @@ const Testimonials = () => {
               </div>
             </Col>
             <Col lg={5}>
-              <div className="text-white d-md-flex gap-4 testimonial-box">
+              <div className="text-white d-md-flex gap-4 testimonial-box animate__animated animate__fadeInRight animate__delay-2s">
                 <div>
                   <FontAwesomeIcon
                     className="fs-1 quote-icon"
@@ -75,22 +75,22 @@ const Testimonials = () => {
           {/* client logo  */}
           <Row className="mt-5 g-0">
             <Col md={6} lg={3}>
-              <div className="client-logo logo-border">
+              <div className="client-logo logo-border animate__animated animate__lightSpeedInLeft animate__delay-2s">
                 <img src={client1} alt="" />
               </div>
             </Col>
             <Col md={6} lg={3}>
-              <div className="client-logo logo-border">
+              <div className="client-logo logo-border animate__animated animate__slideInDown animate__delay-2s">
                 <img src={client2} alt="" />
               </div>
             </Col>
             <Col md={6} lg={3}>
-              <div className="client-logo logo-border">
+              <div className="client-logo logo-border animate__animated animate__slideInUp animate__delay-2s">
                 <img src={client3} alt="" />
               </div>
             </Col>
             <Col md={6} lg={3}>
-              <div className="client-logo">
+              <div className="client-logo animate__animated animate__lightSpeedInRight animate__delay-2s">
                 <img src={client4} alt="" />
               </div>
             </Col>

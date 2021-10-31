@@ -128,7 +128,7 @@ const UpdateStatus = () => {
       {/* banner  */}
       <OthersBanner>Update Order Status</OthersBanner>
       <Container className="py-5 px-3 px-sm-5 colored-bg text-white rounded-3 shadow my-4">
-        <Row className="shadow px-3 py-3 rounded-3 align-items-center g-4">
+        <Row className="shadow px-3 py-3 rounded-3 align-items-center g-4 animate__animated animate__fadeInTopRight">
           <Col md={6} lg={3}>
             <div className="d-flex gap-3 flex-column flex-md-row text-center text-md-start align-items-center">
               <div>
@@ -164,7 +164,10 @@ const UpdateStatus = () => {
           </Col>
           <Col md={6} lg={3}>
             <div className="text-end">
-              <ButtonGroup size="md">
+              <ButtonGroup
+                size="md"
+                className="animate__animated animate__backInUp animate__delay-1s"
+              >
                 <Button
                   onClick={() => handleApproveStatus(_id)}
                   variant="outline-light"

@@ -82,7 +82,7 @@ const OrderPlace = () => {
         </h2>
         <Row className="g-4">
           <Col lg={6}>
-            <div>
+            <div className="animate__animated animate__fadeInLeft">
               <Card className="h-100 shadow-sm">
                 <div className="overflow-hidden order-details-img">
                   <Card.Img className="img-fluid" variant="top" src={img} />
@@ -98,7 +98,7 @@ const OrderPlace = () => {
               </Card>
             </div>
           </Col>
-          <Col lg={6} className="mt-5">
+          <Col lg={6} className="mt-5 animate__animated animate__fadeInRight">
             <h4 className="mb-4">Booking Details</h4>
             <div className="order-form">
               <form onSubmit={handleSubmit(onSubmit)}>

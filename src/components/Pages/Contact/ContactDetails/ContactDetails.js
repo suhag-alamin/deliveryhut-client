@@ -14,7 +14,7 @@ const ContactDetails = () => {
       <Container className="py-5 px-3">
         <Row>
           <Col sm={6} md={4}>
-            <div className="d-flex justify-content-center gap-4">
+            <div className="d-flex justify-content-center gap-4 animate__animated animate__fadeInLeft">
               <div>
                 <span>
                   {" "}
@@ -33,7 +33,7 @@ const ContactDetails = () => {
             </div>
           </Col>
           <Col sm={6} md={4}>
-            <div className="d-flex justify-content-center gap-4">
+            <div className="d-flex justify-content-center gap-4 animate__animated animate__fadeInDown">
               <div>
                 <span>
                   {" "}
@@ -50,7 +50,7 @@ const ContactDetails = () => {
             </div>
           </Col>
           <Col sm={12} md={4}>
-            <div className="d-flex justify-content-center gap-4">
+            <div className="d-flex justify-content-center gap-4 animate__animated animate__fadeInRight">
               <div>
                 <span>
                   {" "}
