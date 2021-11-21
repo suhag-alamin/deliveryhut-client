@@ -16,9 +16,9 @@ const AddService = () => {
   const navigate = useNavigate();
   const redirectUrl = "/services";
 
-  // states
-  // const [image, setImage] = useState(null);
   const formData = new FormData();
+
+  const url = "https://api.cloudinary.com/v1_1/dkw1ovah4/image/upload";
 
   const {
     register,
@@ -34,21 +34,31 @@ const AddService = () => {
     formData.append("subTitle", data.subTitle);
     formData.append("price", data.price);
     formData.append("description", data.description);
-    formData.append("img", data.img);
+    // formData.append("img", data.img);
+    formData.append("file", data.img);
+    formData.append("upload_preset", "llqbnsmr");
 
-    axios
-      .post("https://morning-sierra-84457.herokuapp.com/services", formData)
-      .then((result) => {
-        console.log(result);
-        if (result?.data?.insertedId) {
-          swal({
-            title: "Successfully add a service",
-            icon: "success",
-          });
-          reset();
-          navigate(redirectUrl);
-        }
-      });
+    const uploadImage = async () => {
+      const pic = await axios.post(url, formData);
+      uploadToDb(pic.data.url);
+    };
+    uploadImage();
+
+    const uploadToDb = (img) => {
+      data.img = img;
+      axios
+        .post("https://morning-sierra-84457.herokuapp.com/services", data)
+        .then((result) => {
+          if (result?.data?.insertedId) {
+            swal({
+              title: "Successfully add a service",
+              icon: "success",
+            });
+            reset();
+            navigate(redirectUrl);
+          }
+        });
+    };
   };
   return (
     <>

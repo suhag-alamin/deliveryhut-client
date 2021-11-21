@@ -7,7 +7,6 @@ import "./SingleService.css";
 
 const SingleService = ({ service }) => {
   const { _id, title, subTitle, description, img } = service;
-  console.log(img);
   // handleClick
   const navigate = useNavigate();
   const handleClick = (id) => {
@@ -17,11 +16,7 @@ const SingleService = ({ service }) => {
     <>
       <Card className="h-100 shadow animate__animated animate__slideInUp animate__delay-1s">
         <div className="overflow-hidden service-img">
-          <Card.Img
-            className="img-fluid"
-            variant="top"
-            src={` data:image/*;base64,${img}`}
-          />
+          <Card.Img className="img-fluid" variant="top" src={img} />
         </div>
         <Card.Body>
           <h6 className="text-uppercase sub-title">{subTitle}</h6>
