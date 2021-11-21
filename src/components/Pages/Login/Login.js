@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth";
-import { useHistory, useLocation } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const Login = () => {
   // dynamic title
@@ -16,7 +16,7 @@ const Login = () => {
   const { signInUsingGoogle, signInUsingGithub, setIsLoading } = useAuth();
 
   // redirect private route
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const redirectUrl = location.state?.from || "/";
 
@@ -24,7 +24,7 @@ const Login = () => {
   const hanldeGoogleLogin = () => {
     signInUsingGoogle()
       .then((result) => {
-        history.push(redirectUrl);
+        navigate(redirectUrl);
         swal({
           title: "Successfully Sign In!!",
           icon: "success",
@@ -42,7 +42,7 @@ const Login = () => {
   const handleGithubLogin = () => {
     signInUsingGithub()
       .then((result) => {
-        history.push(redirectUrl);
+        navigate(redirectUrl);
         swal({
           title: "Successfully Sign In!!",
           icon: "success",

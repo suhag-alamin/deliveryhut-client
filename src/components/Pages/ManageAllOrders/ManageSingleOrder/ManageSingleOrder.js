@@ -8,17 +8,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import "./ManageSingleOrder.css";
 
 const ManageSingleOrder = ({ order, hanldeDelete }) => {
   const { _id, userName, userEmail, userImg, serviceName, date, status, img } =
     order;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleUpdateStatus = (id) => {
-    history.push(`/manageAllOrders/${id}`);
+    navigate(`/manageAllOrders/${id}`);
   };
   return (
     <>

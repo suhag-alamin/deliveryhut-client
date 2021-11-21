@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import swal from "sweetalert";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
@@ -13,7 +13,7 @@ const AddService = () => {
   useDocumentTitle("Add a Service");
 
   // redirect  route
-  const history = useHistory();
+  const navigate = useNavigate();
   const redirectUrl = "/services";
 
   const {
@@ -33,7 +33,7 @@ const AddService = () => {
             icon: "success",
           });
           reset();
-          history.push(redirectUrl);
+          navigate(redirectUrl);
         }
       });
   };

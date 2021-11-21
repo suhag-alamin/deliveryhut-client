@@ -9,7 +9,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { confirmAlert } from "react-confirm-alert";
-import { useHistory, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import swal from "sweetalert";
 import useDocumentTitle from "../../../../hooks/useDocumentTitle";
 import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
@@ -25,7 +25,7 @@ const UpdateStatus = () => {
   const [order, setOrder] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // redirect private route
-  const history = useHistory();
+  const navigate = useNavigate();
   const redirectUrl = "/manageAllOrders";
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const UpdateStatus = () => {
                     title: "Booking successfully approved!",
                     icon: "success",
                   });
-                  history.push(redirectUrl);
+                  navigate(redirectUrl);
                 }
               });
           },
@@ -115,7 +115,7 @@ const UpdateStatus = () => {
                     title: "Booking Rejected!",
                     icon: "success",
                   });
-                  history.push(redirectUrl);
+                  navigate(redirectUrl);
                 }
               });
           },

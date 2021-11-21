@@ -1,24 +1,24 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Shared/Header/Header";
-import Footer from "./components/Shared/Footer/Footer";
-import Home from "./components/Pages/Home/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 import About from "./components/Pages/About/About";
-import Contact from "./components/Pages/Contact/Contact";
+import AddService from "./components/Pages/AddService/AddService";
 import AllServices from "./components/Pages/AllServices/AllServices";
+import Contact from "./components/Pages/Contact/Contact";
+import BlogDetails from "./components/Pages/Home/Blogs/BlogDetails/BlogDetails";
+import Home from "./components/Pages/Home/Home";
+import Login from "./components/Pages/Login/Login";
+import ManageAllOrders from "./components/Pages/ManageAllOrders/ManageAllOrders";
+import UpdateStatus from "./components/Pages/ManageAllOrders/UpdateStatus/UpdateStatus";
 import MyOrders from "./components/Pages/MyOrders/MyOrders";
 import OrderPlace from "./components/Pages/OrderPlace/OrderPlace";
-import ManageAllOrders from "./components/Pages/ManageAllOrders/ManageAllOrders";
-import AddService from "./components/Pages/AddService/AddService";
-import Login from "./components/Pages/Login/Login";
 import PageNotFound from "./components/Pages/PageNotFound/PageNotFound";
-import useDocumentTitle from "./hooks/useDocumentTitle";
-import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import BlogDetails from "./components/Pages/Home/Blogs/BlogDetails/BlogDetails";
-import UpdateStatus from "./components/Pages/ManageAllOrders/UpdateStatus/UpdateStatus";
+import Footer from "./components/Shared/Footer/Footer";
+import Header from "./components/Shared/Header/Header";
+import AuthProvider from "./context/AuthProvider";
+import useDocumentTitle from "./hooks/useDocumentTitle";
 
 function App() {
   useDocumentTitle("Deliveryhut - Professional delivery services", false);
@@ -28,47 +28,75 @@ function App() {
       <AuthProvider>
         <Router>
           <Header></Header>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route exact path="/home">
-              <Home></Home>
-            </Route>
-            <Route exact path="/about">
-              <About></About>
-            </Route>
-            <Route exact path="/contact">
-              <Contact></Contact>
-            </Route>
-            <Route exact path="/services">
-              <AllServices></AllServices>
-            </Route>
-            <PrivateRoute exact path="/myOrders">
-              <MyOrders></MyOrders>
-            </PrivateRoute>
-            <PrivateRoute exact path="/orderPlace/:id">
-              <OrderPlace></OrderPlace>
-            </PrivateRoute>
-            <PrivateRoute exact path="/manageAllOrders">
-              <ManageAllOrders></ManageAllOrders>
-            </PrivateRoute>
-            <PrivateRoute exact path="/manageAllOrders/:id">
-              <UpdateStatus></UpdateStatus>
-            </PrivateRoute>
-            <PrivateRoute exact path="/addService">
-              <AddService></AddService>
-            </PrivateRoute>
-            <PrivateRoute exact path="/blog/:id">
-              <BlogDetails></BlogDetails>
-            </PrivateRoute>
-            <Route exact path="/login">
-              <Login></Login>
-            </Route>
-            <Route path="*">
-              <PageNotFound></PageNotFound>
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+
+            <Route path="/home" element={<Home />} />
+
+            <Route path="/about" element={<About />} />
+
+            <Route path="/contact" element={<Contact />} />
+
+            <Route path="/services" element={<AllServices />} />
+
+            <Route
+              path="/myOrders"
+              element={
+                <PrivateRoute>
+                  <MyOrders />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/orderPlace/:id"
+              element={
+                <PrivateRoute>
+                  <OrderPlace />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/manageAllOrders"
+              element={
+                <PrivateRoute>
+                  <ManageAllOrders />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/manageAllOrders/:id"
+              element={
+                <PrivateRoute>
+                  <UpdateStatus />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/addService"
+              element={
+                <PrivateRoute>
+                  <AddService />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/blog/:id"
+              element={
+                <PrivateRoute>
+                  <BlogDetails />
+                </PrivateRoute>
+              }
+            />
+
+            <Route path="/login" element={<Login />} />
+
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
           <Footer></Footer>
         </Router>
       </AuthProvider>

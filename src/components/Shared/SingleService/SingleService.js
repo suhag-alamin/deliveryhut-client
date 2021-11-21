@@ -3,14 +3,14 @@ import { Button, Card } from "react-bootstrap";
 import "./SingleService.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 const SingleService = ({ service }) => {
   const { _id, title, subTitle, description, img } = service;
   // handleClick
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleClick = (id) => {
-    history.push(`/orderPlace/${id}`);
+    navigate(`/orderPlace/${id}`);
   };
   return (
     <>
