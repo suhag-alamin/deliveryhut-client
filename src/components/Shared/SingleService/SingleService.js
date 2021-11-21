@@ -1,9 +1,9 @@
+import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import "./SingleService.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
+import "./SingleService.css";
 
 const SingleService = ({ service }) => {
   const { _id, title, subTitle, description, img } = service;
@@ -20,7 +20,7 @@ const SingleService = ({ service }) => {
           <Card.Img
             className="img-fluid"
             variant="top"
-            src={`data:image/jpeg;base64,${img}` || img}
+            src={` data:image/*;base64,${img}`}
           />
         </div>
         <Card.Body>
