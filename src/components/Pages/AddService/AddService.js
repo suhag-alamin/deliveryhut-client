@@ -16,6 +16,10 @@ const AddService = () => {
   const navigate = useNavigate();
   const redirectUrl = "/services";
 
+  // states
+  // const [image, setImage] = useState(null);
+  const formData = new FormData();
+
   const {
     register,
     handleSubmit,
@@ -23,8 +27,17 @@ const AddService = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    // data.image = image;
+    data.img = data.img[0];
+
+    formData.append("title", data.title);
+    formData.append("subTitle", data.subTitle);
+    formData.append("price", data.price);
+    formData.append("description", data.description);
+    formData.append("img", data.img);
+
     axios
-      .post("https://morning-sierra-84457.herokuapp.com/services", data)
+      .post("https://morning-sierra-84457.herokuapp.com/services", formData)
       .then((result) => {
         console.log(result);
         if (result?.data?.insertedId) {
@@ -76,7 +89,7 @@ const AddService = () => {
             {errors.price && (
               <span className="text-danger">Price is required</span>
             )}
-            <input
+            {/* <input
               title="Please upload the image in Imgbb or anywhere you want, then submit the live link."
               type="url"
               placeholder="Image url / link"
@@ -84,7 +97,14 @@ const AddService = () => {
             />
             {errors.img && (
               <span className="text-danger">Image link / URL is required</span>
-            )}
+            )} */}
+
+            <input
+              // onChange={(e) => setImage(e.target.files[0])}
+              type="file"
+              accept="image/*"
+              {...register("img", { required: true })}
+            />
 
             <input
               type="submit"
