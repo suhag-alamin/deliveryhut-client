@@ -10,7 +10,6 @@ import SingleOrder from "./SingleOrder/SingleOrder";
 
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { useHistory, useLocation } from "react-router";
 
 const MyOrders = () => {
   // dynamic title
