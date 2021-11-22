@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router";
 import swal from "sweetalert";
 import "./CheckoutForm.css";
 
@@ -9,6 +10,8 @@ const CheckoutForm = ({ order }) => {
   const { _id, price, userName, userEmail } = order;
   const stripe = useStripe();
   const elements = useElements();
+
+  const navigate = useNavigate();
 
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
@@ -51,7 +54,7 @@ const CheckoutForm = ({ order }) => {
         icon: "error",
       });
     } else {
-      console.log(paymentMethod);
+      // console.log(paymentMethod);
     }
 
     // payment intent
@@ -78,7 +81,7 @@ const CheckoutForm = ({ order }) => {
         title: "Your payment processed successfully",
         icon: "success",
       });
-      console.log(paymentIntent);
+
       setProcessing(false);
 
       // save to database
@@ -95,7 +98,8 @@ const CheckoutForm = ({ order }) => {
           payment
         )
         .then((result) => {
-          console.log(result);
+          // console.log(result);
+          navigate("/myOrders");
         });
     }
   };
