@@ -1,12 +1,21 @@
-import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import "./SingleOrder.css";
-
+import {
+  faBan,
+  faCheck,
+  faStream,
+  faCreditCard,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faBan, faStream } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
+import { useNavigate } from "react-router";
+import "./SingleOrder.css";
 
 const SingleOrder = ({ order, hanldeDelete }) => {
   const { _id, serviceName, img, date, status } = order;
+  const navigate = useNavigate();
+  const handlePayment = (id) => {
+    navigate(`/payment/${id}`);
+  };
   return (
     <>
       {/* <div className="order-details-box d-md-flex align-items-center shadow">
@@ -51,16 +60,28 @@ const SingleOrder = ({ order, hanldeDelete }) => {
         </Col>
         <Col md={12} lg={12} xl={4}>
           <div className="text-end mt-3 mt-xl-0">
-            <Button
-              onClick={() => hanldeDelete(_id)}
-              className=" animate__animated animate__backInUp animate__delay-1s"
-              variant="outline-light"
-            >
-              <span className="me-2">
-                <FontAwesomeIcon icon={faBan} />
-              </span>
-              Cancel
-            </Button>
+            <ButtonGroup className=" animate__animated animate__backInUp animate__delay-1s">
+              {order?.payment ? (
+                <Button variant="outline-light">Paid</Button>
+              ) : (
+                <Button
+                  variant="outline-light"
+                  onClick={() => handlePayment(_id)}
+                >
+                  <span className="me-2">
+                    <FontAwesomeIcon icon={faCreditCard} />
+                  </span>
+                  Pay
+                </Button>
+              )}
+
+              <Button variant="outline-light" onClick={() => hanldeDelete(_id)}>
+                <span className="me-2">
+                  <FontAwesomeIcon icon={faBan} />
+                </span>
+                Cancel
+              </Button>
+            </ButtonGroup>
           </div>
         </Col>
       </Row>

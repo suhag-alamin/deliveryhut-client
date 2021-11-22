@@ -12,6 +12,7 @@ import Login from "./components/Pages/Login/Login";
 import ManageAllOrders from "./components/Pages/ManageAllOrders/ManageAllOrders";
 import UpdateStatus from "./components/Pages/ManageAllOrders/UpdateStatus/UpdateStatus";
 import MyOrders from "./components/Pages/MyOrders/MyOrders";
+import Payment from "./components/Pages/MyOrders/Payment/Payment";
 import OrderPlace from "./components/Pages/OrderPlace/OrderPlace";
 import PageNotFound from "./components/Pages/PageNotFound/PageNotFound";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -44,6 +45,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <MyOrders />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/payment/:id"
+              element={
+                <PrivateRoute>
+                  <Payment />
                 </PrivateRoute>
               }
             />
