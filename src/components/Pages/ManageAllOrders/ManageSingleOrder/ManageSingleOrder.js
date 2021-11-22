@@ -67,6 +67,7 @@ const ManageSingleOrder = ({ order, hanldeDelete }) => {
               )}
               <b>{status}</b>
             </p>
+            <span>Payment: {order?.payment ? "Paid" : "Need to pay"}</span>
             <p>
               Arrival date:
               <b> {date}</b>

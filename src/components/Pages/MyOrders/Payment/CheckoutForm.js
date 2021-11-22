@@ -86,7 +86,6 @@ const CheckoutForm = ({ order }) => {
         amount: paymentIntent.amount,
         created: paymentIntent.created,
         last4: paymentMethod.card.last4,
-        // transaction: paymentIntent.client_secret.slice("_secret")[0],
         transaction: paymentIntent.id,
       };
 

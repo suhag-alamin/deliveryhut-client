@@ -1,8 +1,9 @@
 import {
   faBan,
   faCheck,
-  faStream,
   faCreditCard,
+  faMoneyBillWave,
+  faStream,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -18,12 +19,6 @@ const SingleOrder = ({ order, hanldeDelete }) => {
   };
   return (
     <>
-      {/* <div className="order-details-box d-md-flex align-items-center shadow">
-        
-       
-        
-      </div> */}
-
       <Row className="order-details-box d-md-flex align-items-center shadow animate__animated animate__fadeInUpBig">
         <Col md={6} lg={6} xl={4}>
           <div>
@@ -32,7 +27,7 @@ const SingleOrder = ({ order, hanldeDelete }) => {
         </Col>
         <Col md={6} lg={6} xl={4}>
           <div className="order-details">
-            <h4 className="mt-3 mt-lg-0 serive-title">{serviceName}</h4>
+            <h5 className="mt-3 mt-lg-0 serive-title">{serviceName}</h5>
             <p>
               Status:{" "}
               {status === "Approved" && (
@@ -62,7 +57,12 @@ const SingleOrder = ({ order, hanldeDelete }) => {
           <div className="text-end mt-3 mt-xl-0">
             <ButtonGroup className=" animate__animated animate__backInUp animate__delay-1s">
               {order?.payment ? (
-                <Button variant="outline-light">Paid</Button>
+                <Button variant="outline-light p-1">
+                  <span className="me-2">
+                    <FontAwesomeIcon icon={faMoneyBillWave} />
+                  </span>
+                  Paid
+                </Button>
               ) : (
                 <Button
                   variant="outline-light"
