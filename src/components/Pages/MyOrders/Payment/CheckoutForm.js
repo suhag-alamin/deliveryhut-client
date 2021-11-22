@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import swal from "sweetalert";
+import "./CheckoutForm.css";
 
 const CheckoutForm = ({ order }) => {
   const { _id, price, userName, userEmail } = order;
@@ -29,11 +30,13 @@ const CheckoutForm = ({ order }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
+      setProcessing(false);
       return;
     }
 
     const card = elements.getElement(CardElement);
     if (card === null) {
+      setProcessing(false);
       return;
     }
     setProcessing(true);
@@ -42,6 +45,7 @@ const CheckoutForm = ({ order }) => {
       card,
     });
     if (error) {
+      setProcessing(false);
       swal({
         title: error.message,
         icon: "error",
@@ -67,6 +71,7 @@ const CheckoutForm = ({ order }) => {
         title: intentError.message,
         icon: "error",
       });
+      setProcessing(false);
     } else {
       setSuccess("Your payment processed successfully");
       swal({
@@ -98,25 +103,28 @@ const CheckoutForm = ({ order }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="checkout-form" onSubmit={handleSubmit}>
         <CardElement
+          className="card-element"
           options={{
             style: {
               base: {
                 fontSize: "16px",
-                color: "#424770",
+                color: "#fff",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "#fff",
                 },
               },
               invalid: {
-                color: "#9e2146",
+                color: "#f7f7f7",
               },
             },
           }}
         />
         {processing ? (
-          <Spinner animation="border" variant="" style={{ color: "#006d77" }} />
+          <div className="text-center py-1">
+            <Spinner animation="border" variant="" style={{ color: "#fff" }} />
+          </div>
         ) : (
           <Button
             variant="outline-light"
