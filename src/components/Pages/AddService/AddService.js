@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import swal from "sweetalert";
@@ -99,11 +99,14 @@ const AddService = () => {
               <span className="text-danger">Price is required</span>
             )}
 
-            <input
-              type="file"
-              accept="image/*"
-              {...register("img", { required: true })}
-            />
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Upload Service Image</Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                {...register("img", { required: true })}
+              />
+            </Form.Group>
             {errors.img && (
               <span className="text-danger">Image is required</span>
             )}
