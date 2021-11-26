@@ -14,7 +14,10 @@
 - Built an online service booking website
 - gives users the option to make a payment or to cancel their order
 - provides users with the ability to read blog posts published on the website
+- Payment gateway included
 - User can contact with us.
+- Improved performance by optimizing and resizing images
+- Used Axios to fetch data
 
 ## Technology Used -
 
