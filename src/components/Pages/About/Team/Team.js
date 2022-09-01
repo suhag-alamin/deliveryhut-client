@@ -9,7 +9,7 @@ const Team = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch("https://morning-sierra-84457.herokuapp.com/team")
+    fetch("https://deliveryhut.onrender.com/team")
       .then((res) => res.json())
       .then((data) => {
         setTeamMembers(data);

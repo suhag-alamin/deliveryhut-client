@@ -13,7 +13,7 @@ const AllServices = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://morning-sierra-84457.herokuapp.com/services")
+    fetch("https://deliveryhut.onrender.com/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);

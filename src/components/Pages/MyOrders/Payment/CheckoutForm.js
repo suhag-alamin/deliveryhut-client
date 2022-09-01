@@ -19,12 +19,9 @@ const CheckoutForm = ({ order }) => {
 
   useEffect(() => {
     axios
-      .post(
-        "https://morning-sierra-84457.herokuapp.com/create-payment-intent",
-        {
-          price,
-        }
-      )
+      .post("https://deliveryhut.onrender.com/create-payment-intent", {
+        price,
+      })
       .then((result) => {
         setClientSecret(result.data?.clientSecret);
       });
@@ -93,10 +90,7 @@ const CheckoutForm = ({ order }) => {
       };
 
       axios
-        .put(
-          `https://morning-sierra-84457.herokuapp.com/orders/${_id}`,
-          payment
-        )
+        .put(`https://deliveryhut.onrender.com/orders/${_id}`, payment)
         .then((result) => {
           // console.log(result);
           navigate("/myOrders");

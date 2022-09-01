@@ -27,7 +27,7 @@ const MyOrders = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .post("https://morning-sierra-84457.herokuapp.com/orders/byEmail", values)
+      .post("https://deliveryhut.onrender.com/orders/byEmail", values)
       .then((orders) => {
         setOrders(orders.data);
         setIsLoading(false);
@@ -42,7 +42,7 @@ const MyOrders = () => {
           label: "Yes",
           onClick: () => {
             axios
-              .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+              .delete(`https://deliveryhut.onrender.com/orders/${id}`)
               .then((result) => {
                 if (result.data.deletedCount > 0) {
                   const remaining = orders.filter((event) => event._id !== id);

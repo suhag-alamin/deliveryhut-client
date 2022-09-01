@@ -18,7 +18,7 @@ const ManageAllOrders = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch("https://morning-sierra-84457.herokuapp.com/orders")
+    fetch("https://deliveryhut.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -34,7 +34,7 @@ const ManageAllOrders = () => {
           label: "Yes",
           onClick: () => {
             axios
-              .delete(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+              .delete(`https://deliveryhut.onrender.com/orders/${id}`)
               .then((result) => {
                 if (result.data.deletedCount > 0) {
                   const remaining = orders.filter((event) => event._id !== id);

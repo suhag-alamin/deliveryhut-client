@@ -46,7 +46,7 @@ const AddService = () => {
       data.img = img;
       data.price = parseFloat(data.price);
       axios
-        .post("https://morning-sierra-84457.herokuapp.com/services", data)
+        .post("https://deliveryhut.onrender.com/services", data)
         .then((result) => {
           if (result?.data?.insertedId) {
             swal({

@@ -14,8 +14,8 @@ import swal from "sweetalert";
 import useDocumentTitle from "../../../../hooks/useDocumentTitle";
 import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
 
+import { faBan, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faBan } from "@fortawesome/free-solid-svg-icons";
 
 const UpdateStatus = () => {
   // dynamic title
@@ -31,7 +31,7 @@ const UpdateStatus = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+    fetch(`https://deliveryhut.onrender.com/orders/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setOrder(data);
@@ -61,10 +61,7 @@ const UpdateStatus = () => {
           label: "Yes",
           onClick: () => {
             axios
-              .put(
-                `https://morning-sierra-84457.herokuapp.com/orders/${id}`,
-                order
-              )
+              .put(`https://deliveryhut.onrender.com/orders/${id}`, order)
               .then((result) => {
                 if (result.data?.modifiedCount > 0) {
                   swal({
@@ -105,10 +102,7 @@ const UpdateStatus = () => {
           label: "Yes",
           onClick: () => {
             axios
-              .put(
-                `https://morning-sierra-84457.herokuapp.com/orders/${id}`,
-                order
-              )
+              .put(`https://deliveryhut.onrender.com/orders/${id}`, order)
               .then((result) => {
                 if (result.data?.modifiedCount > 0) {
                   swal({

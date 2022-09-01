@@ -7,7 +7,7 @@ const Blogs = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://morning-sierra-84457.herokuapp.com/blogs")
+    fetch("https://deliveryhut.onrender.com/blogs")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);

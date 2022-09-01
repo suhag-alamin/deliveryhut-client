@@ -1,10 +1,10 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router";
 import OthersBanner from "../../../Shared/OthersBanner/OthersBanner";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
 const stripePromise = loadStripe(
@@ -16,7 +16,7 @@ const Payment = () => {
   const [order, setOrder] = useState({});
   useEffect(() => {
     axios
-      .get(`https://morning-sierra-84457.herokuapp.com/orders/${id}`)
+      .get(`https://deliveryhut.onrender.com/orders/${id}`)
       .then((result) => {
         setOrder(result.data);
       });

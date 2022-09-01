@@ -13,7 +13,7 @@ const ContactForm = () => {
   } = useForm();
   const onSubmit = (data) => {
     axios
-      .post("https://morning-sierra-84457.herokuapp.com/message", data)
+      .post("https://deliveryhut.onrender.com/message", data)
       .then((result) => {
         if (result.data?.insertedId) {
           swal({

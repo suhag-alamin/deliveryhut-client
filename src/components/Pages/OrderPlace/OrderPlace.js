@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
+import swal from "sweetalert";
 import useAuth from "../../../hooks/useAuth";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 import OthersBanner from "../../Shared/OthersBanner/OthersBanner";
 import "./OrderPlace.css";
-import swal from "sweetalert";
 
 const OrderPlace = () => {
   // dynamic title
@@ -26,7 +26,7 @@ const OrderPlace = () => {
   // load data
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://morning-sierra-84457.herokuapp.com/services/${id}`)
+    fetch(`https://deliveryhut.onrender.com/services/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setService(data);
@@ -50,7 +50,7 @@ const OrderPlace = () => {
     data.img = `${img}`;
     data.userImg = user?.photoURL;
     axios
-      .post("https://morning-sierra-84457.herokuapp.com/orders", data)
+      .post("https://deliveryhut.onrender.com/orders", data)
       .then((result) => {
         if (result?.data?.insertedId) {
           swal({

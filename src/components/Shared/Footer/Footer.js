@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import "./Footer.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faGithub,
-  faTwitter,
   faLinkedinIn,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  faEnvelope,
   faLocationArrow,
   faPhoneAlt,
-  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import "./Footer.css";
 
-import logo from "../../../images/logo-2.png";
 import { Link } from "react-router-dom";
+import logo from "../../../images/logo-2.png";
 
 const Footer = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("https://morning-sierra-84457.herokuapp.com/blogs")
+    fetch("https://deliveryhut.onrender.com/blogs")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);

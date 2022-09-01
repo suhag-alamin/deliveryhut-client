@@ -8,7 +8,7 @@ const BlogDetails = () => {
   const { id } = useParams();
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://morning-sierra-84457.herokuapp.com/blogs/${id}`)
+    fetch(`https://deliveryhut.onrender.com/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setBlog(data);
